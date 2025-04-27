@@ -58,7 +58,7 @@
 		<!-- /HOT DEAL SECTION -->
 
 		<!-- SECTION -->
-            @include(/home.topselling')
+            @include('home.topselling')
 		<!-- /SECTION -->
 
 		<!-- SECTION -->
