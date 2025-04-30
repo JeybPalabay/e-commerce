@@ -22,32 +22,113 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="admin/assets/images/favicon.png" />
     <style type="text/css">
-        .div_center{
-            text-align: center;
-            padding-top: 40px;
-        }
-        .h2_font{
-            font-size: 40px;
-            padding-bottom: 40px;
-        }
-        .input_color{
-            color: black;
-        }
-        .center{
-            margin: auto;
-            width: 50%;
-            text-align: center;
-            margin-top: 30px;
-            border: 2px red solid;
-        }
-        label{
-            display: inline-block;
-            width: 200px ;
-        }
-        .div_design{
-            padding-bottom: 15px;
-        }
-    </style>
+
+    .main-panel,
+      .content-wrapper {
+        background-color: #1A1C23 !important;
+
+      }
+    body {
+        background-color: #191A1F;
+        color: #f0f0f0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .div_center {
+        text-align: center;
+        padding-top: 40px;
+        background-color: #191A1F;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: #191A1F;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .h2_font {
+        font-size: 40px;
+        padding-bottom: 20px;
+        color: #ffffff;
+    }
+
+    .div_design {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    label {
+        display: inline-block;
+        width: 200px;
+        color: #f0f0f0;
+        font-weight: bold;
+    }
+
+    .input_color,
+    select,
+    input[type="text"],
+    input[type="number"],
+    input[type="file"] {
+        width: calc(100% - 220px);
+        background-color: #2c2c2c;
+        color: #ffffff;
+        border: 1px solid #444;
+        padding: 8px 10px;
+        border-radius: 6px;
+        outline: none;
+        transition: border 0.3s;
+    }
+
+    .input_color:focus,
+    select:focus,
+    input[type="file"]:focus {
+        border: 1px solid #00bcd4;
+    }
+
+    select {
+        appearance: none;
+    }
+
+    input[type="file"] {
+        padding: 5px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        font-weight: bold;
+        border-radius: 6px;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .alert {
+        background-color: #1e7e34;
+        border: none;
+        color: #ffffff;
+    }
+
+    .btn-close {
+        filter: invert(1);
+    }
+    .btn-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button to the right */
+    margin-top: 30px; /* Optional: adds some space above the button */
+    margin-right: 20px;
+    }
+    select option:disabled {
+    color: gray;  /* Light gray */
+    font-style: italic;
+    }
+
+
+    
+</style>
+
   </head>
   <body>
     <div class="container-scroller">
@@ -95,6 +176,7 @@
                     <option value="{{$category->id}}">{{$category->category_name}}</option>
                     @endforeach
                 </select>
+
             </div>
 
             <div class="div_design">
@@ -102,7 +184,9 @@
                 <input type="file" name="image" id="image">
             </div>
 
-            <input type="submit" class="btn btn-primary" value="Add Product">
+            <div class="btn-container">
+                <input type="submit" class="btn btn-primary" value="Add Product">
+            </div>
 
             </form>
             </div>
@@ -117,4 +201,4 @@
     <!-- plugins:js -->
     @include('admin.script')
   </body>
-</html>
+</html> 
