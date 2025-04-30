@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <base href="/public">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -67,30 +68,30 @@
             </div>
             @endif
             <div class="div_center">
-            <h2 class="h2_font">Add Product</h2>
+            <h2 class="h2_font">Update Product</h2>
 
-            <form action="{{url('add_product')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('update_product_confirm', $product->id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
             <div class="div_design">
                 <label for="name">Product Name</label>
-                <input type="text" class="input_color" name="name" id="name" placeholder="Name of the Product ">
+                <input type="text" class="input_color" name="name" id="name" placeholder="Name of the Product " value="{{$product->product_name}}">
             </div>
             <div class="div_design">
                 <label for="price">Product Price</label>
-                <input type="number" class="input_color" name="price" id="price" placeholder="Price of the Product ">
+                <input type="number" class="input_color" name="price" id="price" placeholder="Price of the Product "  value="{{$product->price}}">
             </div>
             <div class="div_design"> 
                 <label for="discount">Product Discount</label>
-                <input type="number" class="input_color" name="discount" id="discount" placeholder="Discount of the Product ">
+                <input type="number" class="input_color" name="discount" id="discount" placeholder="Discount of the Product "  value="{{$product->discounted_price}}">
             </div>
             <div class="div_design">
                 <label for="description">Product Description</label>
-                <input type="text" class="input_color" name="description" id="description" placeholder="Descirption of Product ">
+                <input type="text" class="input_color" name="description" id="description" placeholder="Descirption of Product " value="{{$product->description}}">
             </div>
             <div class="div_design">
                 <label for="Category">Product Category</label>
                 <select name="category" id="category" class="input_color">
-                    <option value="" disabled selected>Add a Category Here</option>
+                    <option value="{{$product->category}}" selected>{{$categoryName}}</option>
                     @foreach($category as $category)
                     <option value="{{$category->id}}">{{$category->category_name}}</option>
                     @endforeach
@@ -98,11 +99,16 @@
             </div>
 
             <div class="div_design">
-                <label for="image">Product Image</label>
+                <label for="image">Current Product Image</label>
+                <img style="margin:auto" height="100" width="100" src="product/{{$product->image}}">
+            </div>
+
+            <div class="div_design">
+                <label for="image">Change Product Image</label>
                 <input type="file" name="image" id="image">
             </div>
 
-            <input type="submit" class="btn btn-primary" value="Add Product">
+            <input type="submit" class="btn btn-primary" value="Update Product">
 
             </form>
             </div>

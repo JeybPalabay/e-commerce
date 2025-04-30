@@ -47,6 +47,16 @@
         .div_design{
             padding-bottom: 15px;
         }
+        .img_size{
+            width: 150px;
+            height: 150px;
+        }
+        .th_color{
+            background:skyblue;
+        }
+        .th_deg{
+            padding: 30px;
+        }
     </style>
   </head>
   <body>
@@ -68,43 +78,36 @@
             @endif
             <div class="div_center">
             <h2 class="h2_font">Add Product</h2>
-
-            <form action="{{url('add_product')}}" method="POST" enctype="multipart/form-data">
-                @csrf
-            <div class="div_design">
-                <label for="name">Product Name</label>
-                <input type="text" class="input_color" name="name" id="name" placeholder="Name of the Product ">
-            </div>
-            <div class="div_design">
-                <label for="price">Product Price</label>
-                <input type="number" class="input_color" name="price" id="price" placeholder="Price of the Product ">
-            </div>
-            <div class="div_design"> 
-                <label for="discount">Product Discount</label>
-                <input type="number" class="input_color" name="discount" id="discount" placeholder="Discount of the Product ">
-            </div>
-            <div class="div_design">
-                <label for="description">Product Description</label>
-                <input type="text" class="input_color" name="description" id="description" placeholder="Descirption of Product ">
-            </div>
-            <div class="div_design">
-                <label for="Category">Product Category</label>
-                <select name="category" id="category" class="input_color">
-                    <option value="" disabled selected>Add a Category Here</option>
-                    @foreach($category as $category)
-                    <option value="{{$category->id}}">{{$category->category_name}}</option>
+                <table class="center ">
+                    <tr class="th_color">
+                        <th class="th_deg">Image</th>
+                        <th class="th_deg">ID</th>
+                        <th class="th_deg">Product Name</th>
+                        <th class="th_deg">Description</th>
+                        <th class="th_deg">Price</th>
+                        <th class="th_deg">Discounted Price</th>
+                        <th class="th_deg" colspan=2 >Action</th>
+                    </tr>
+                    @foreach ($product as $product)
+                    <tr>
+                        <td><img class="img_size" src= "product/{{$product->image}}" alt="{{$product->product_name}}"></td>
+                        <td>{{$product->id}}</td>
+                        <td>{{$product->product_name}}</td>
+                        <td>{{$product->description}}</td>
+                        <td>{{$product->price}}</td>
+                        <td>{{$product->discounted_price}}</td>
+                            <td>
+                                <a href="{{url('delete_product', $product->id)}}" onclick="return confirm('Are you sure you want to delete this product?')" class="btn btn-danger">Delete</a>
+                            </td>
+                            <td>
+                                <a href="{{url('update_product', $product->id)}}" class="btn btn-success">Update</a>
+                            </td>
+                    </tr>
                     @endforeach
-                </select>
-            </div>
+                </table>
 
-            <div class="div_design">
-                <label for="image">Product Image</label>
-                <input type="file" name="image" id="image">
-            </div>
 
-            <input type="submit" class="btn btn-primary" value="Add Product">
-
-            </form>
+          
             </div>
  
             </div>

@@ -12,7 +12,7 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+                  <h5 class="mb-0 font-weight-normal">Admin</h5>
                   <span>Gold Member</span>
                 </div>
               </div>
@@ -76,7 +76,7 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/view_product')}}">Add Product</a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Manage Product</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{url('/manage_product')}}">Manage Product</a></li>
               </ul>
             </div>
           </li>
