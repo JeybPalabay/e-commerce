@@ -75,7 +75,7 @@
               <span class="menu-title">Products</span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="" id="ui-basic">
               <ul class="nav flex-column sub-menu">
               <li class="nav-item">
                   <a class="nav-link" href="{{ url('/view_product') }}"><i class="fas fa-tags me-2"></i> Add Product</a>
